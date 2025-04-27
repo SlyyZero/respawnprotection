@@ -5,3 +5,5 @@ pluginManagement {
     }
 }
 rootProject.name = 'respawnprotection'
+
+include 'src:main:client'

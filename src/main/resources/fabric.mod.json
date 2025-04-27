@@ -4,15 +4,23 @@
   "version": "1.0.2+1.21.4",
   "name": "Respawn Protection",
   "description": "Gives players N seconds of invincibility after respawning.",
-  "authors": ["extremecream"],
-  "contact": {"sources": "https://www.curseforge.com/members/extremecream/projects"},
+  "authors": [
+    "extremecream"
+  ],
+  "contact": {
+    "sources": "https://www.curseforge.com/members/extremecream/projects"
+  },
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
     "main": [
       "com.example.respawnprotection.RespawnProtectionMod"
+    ],
+    "client": [
+      "com.example.respawnprotection.RespawnProtectionClient"
     ]
   },
+
   "depends": {
     "fabricloader": ">=0.16.14",
     "minecraft": "1.21.4",

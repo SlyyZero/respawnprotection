@@ -1,22 +1,31 @@
+
+
 plugins {
     id 'fabric-loom' version '1.9.2'
     id 'maven-publish'
 }
 
+def minecraftVersion = '1.21.4'
+def yarnMappings    = '1.21.4+build.1:v2'
+def loaderVersion   = '0.16.14'
+def fabricApiVersion= '0.119.2+1.21.4'
 
-group = 'com.example.respawnprotection'
+
+group = 'com.example'
 version = '1.0.2'
 
 repositories {
     mavenCentral()
-    maven { url 'https://maven.fabricmc.net/' }
+    maven { url = "https://maven.fabricmc.net/" }
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:1.21.4"
-    mappings "net.fabricmc:yarn:1.21.4+build.1:v2" // (example mapping - adjust if needed)
+    minecraft "com.mojang:minecraft:${minecraftVersion}"
+    mappings  "net.fabricmc:yarn:${yarnMappings}" // (example mapping - adjust if needed)
     modImplementation "net.fabricmc.fabric-api:fabric-api:0.119.2+1.21.4"
-    modImplementation "net.fabricmc:fabric-loader:0.16.4" // Match to a modern loader
+    modCompileOnly "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
+    modCompileOnly "net.fabricmc.fabric-api:fabric-rendering-v1:${fabricApiVersion}"
+    modCompileOnly "net.fabricmc.fabric-api:fabric-lifecycle-events-v1:${fabricApiVersion}"
 }
 
 loom {
@@ -24,5 +33,6 @@ loom {
 }
 
 java {
-    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
